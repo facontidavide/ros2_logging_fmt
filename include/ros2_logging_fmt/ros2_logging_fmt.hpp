@@ -2,8 +2,9 @@
 #define ROS2_LOGGING_PLUS_HPP
 
 #include <rclcpp/rclcpp.hpp>
+
 #define FMT_HEADER_ONLY
-#include "ros2_logging_fmt/fmt/core.h"
+#include "fmt/format.h"
 
 namespace ros2_logging_fmt
 {
