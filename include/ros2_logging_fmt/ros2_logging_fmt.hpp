@@ -45,7 +45,8 @@ private:
   template<typename... Args>
   const char* write_buffer(const char* str, Args... args)
   {
-    static thread_local std::string buffer = [](){ // reserve 1000 characters
+     // static buffer with 500 characters pre-allocated 
+    static thread_local std::string buffer = [](){
       std::string tmp; 
       tmp.reserve(500);
       return tmp;
