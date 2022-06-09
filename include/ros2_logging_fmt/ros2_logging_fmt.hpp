@@ -39,6 +39,12 @@ public:
     RCLCPP_FATAL(rclcpp_logger_, write_buffer(str, args...) );
   }
 
+  template<typename... Args>
+  void debug(const char* str, Args... args)
+  {
+    RCLCPP_DEBUG(rclcpp_logger_, write_buffer(str, args...) );
+  }
+
   rclcpp::Logger rclcpp_logger_;
 private:
 
