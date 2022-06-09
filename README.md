@@ -11,7 +11,7 @@ Advantages:
 - Thread safe.
 - It will not allocate any memory (unless for particularly long messages, and only once).
 
-**NOTE: stil under construction. PR and suggestions are welcome. **
+**NOTE: stil under construction. PR and suggestions are welcome.**
 
 ## Example
 
