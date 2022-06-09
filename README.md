@@ -1,7 +1,17 @@
 # ros2_logging_fmt
 
 It is the same as [rclcpp logging](https://docs.ros.org/en/foxy/Tutorials/Logging-and-logger-configuration.html)
-but much nicer, using [fmt](https://github.com/fmtlib/fmt) instead of **printf-like** formatting
+but much nicer, using [fmt](https://github.com/fmtlib/fmt) instead of **printf-like** formatting.
+
+Advantages:
+
+- More type safe that "printf-style" API.
+- [Faster execution](https://github.com/fmtlib/fmt#speed-tests).
+- Powerful syntax (see [examples](https://fmt.dev/latest/syntax.html#format-examples) ).
+- Thread safe.
+- It will not allocate any memory (unless for particularly long messages, and only once).
+
+**NOTE: stil under construction. PR and suggestions are welcome.**
 
 ## Example
 

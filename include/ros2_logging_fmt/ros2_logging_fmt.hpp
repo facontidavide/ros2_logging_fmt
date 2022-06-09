@@ -51,7 +51,13 @@ private:
   template<typename... Args>
   const char* write_buffer(const char* str, Args... args)
   {
-    static thread_local std::string buffer;
+     // static buffer with 500 characters pre-allocated 
+    static thread_local std::string buffer = [](){
+      std::string tmp; 
+      tmp.reserve(500);
+      return tmp;
+    }();
+    
     buffer.clear();
     fmt::format_to(std::back_inserter(buffer), str, args...);
     return buffer.c_str();
