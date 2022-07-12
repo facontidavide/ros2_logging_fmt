@@ -40,4 +40,5 @@ install(
 install(TARGETS test_logging
     RUNTIME DESTINATION lib/${PROJECT_NAME})
 
+ament_export_include_directories(include)
 ament_package()
