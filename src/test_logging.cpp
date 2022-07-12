@@ -19,6 +19,13 @@ int main(int argc, char * argv[])
   logger.warn("Warning: {} > {}", 30.1, 30.0);
   logger.debug("DEBUG MESSAGE");
 
+  ros2_logging_fmt::Logger logger_clk(node.get_logger(), node.get_clock());
+
+  logger_clk.info_throttle(1000, "Hello {} number {}", world, 42);
+  logger_clk.error_throttle(1000, "We have {} errors", 99);
+  logger_clk.warn_throttle(1000, "Warning: {} > {}", 30.1, 30.0);
+  logger_clk.debug_throttle(500, "DEBUG MESSAGE");
+
   rclcpp::shutdown();
   return 0;
 }
