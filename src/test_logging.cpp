@@ -19,6 +19,11 @@ int main(int argc, char * argv[])
   logger.warn("Warning: {} > {}", 30.1, 30.0);
   logger.debug("DEBUG MESSAGE");
 
+  logger.info_throttle(*node.get_clock(), 1000, "Hello {} number {}", world, 42);
+  logger.error_throttle(*node.get_clock(), 1000, "We have {} errors", 99);
+  logger.warn_throttle(*node.get_clock(),1000, "Warning: {} > {}", 30.1, 30.0);
+  logger.debug_throttle(*node.get_clock(),1000, "DEBUG MESSAGE");
+
   ros2_logging_fmt::Logger logger_clk(node.get_logger(), node.get_clock());
 
   logger_clk.info_throttle(1000, "Hello {} number {}", world, 42);

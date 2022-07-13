@@ -25,9 +25,9 @@ public:
   }
 
   template<typename... Args>
-  void info_throttle(rclcpp::Clock::SharedPtr clock, int duration, const char* str,  Args... args)
+  void info_throttle(rclcpp::Clock& clock, int duration, const char* str,  Args... args)
   {
-      RCLCPP_INFO_THROTTLE(rclcpp_logger_, *clock, duration, write_buffer(str, args...) );
+      RCLCPP_INFO_THROTTLE(rclcpp_logger_, clock, duration, write_buffer(str, args...) );
   }
 
   template<typename... Args>
@@ -43,9 +43,9 @@ public:
   }
 
   template<typename... Args>
-  void warn_throttle(rclcpp::Clock::SharedPtr clock, int duration, const char* str,  Args... args)
+  void warn_throttle(rclcpp::Clock &clock, int duration, const char* str,  Args... args)
   {
-      RCLCPP_WARN_THROTTLE(rclcpp_logger_, *clock, duration, write_buffer(str, args...) );
+      RCLCPP_WARN_THROTTLE(rclcpp_logger_, clock, duration, write_buffer(str, args...) );
   }
 
   template<typename... Args>
@@ -61,9 +61,9 @@ public:
   }
 
   template<typename... Args>
-  void error_throttle(rclcpp::Clock::SharedPtr clock, int duration, const char* str,  Args... args)
+  void error_throttle(rclcpp::Clock& clock, int duration, const char* str,  Args... args)
   {
-      RCLCPP_ERROR_THROTTLE(rclcpp_logger_, *clock, duration, write_buffer(str, args...) );
+      RCLCPP_ERROR_THROTTLE(rclcpp_logger_, clock, duration, write_buffer(str, args...) );
   }
 
   template<typename... Args>
@@ -79,9 +79,9 @@ public:
   }
 
   template<typename... Args>
-  void fatal_throttle(rclcpp::Clock::SharedPtr clock, int duration, const char* str,  Args... args)
+  void fatal_throttle(rclcpp::Clock& clock, int duration, const char* str,  Args... args)
   {
-      RCLCPP_FATAL_THROTTLE(rclcpp_logger_, *clock, duration, write_buffer(str, args...) );
+      RCLCPP_FATAL_THROTTLE(rclcpp_logger_, clock, duration, write_buffer(str, args...) );
   }
 
   template<typename... Args>
@@ -97,9 +97,9 @@ public:
   }
 
   template<typename... Args>
-  void debug_throttle(rclcpp::Clock::SharedPtr clock, int duration, const char* str,  Args... args)
+  void debug_throttle(rclcpp::Clock& clock, int duration, const char* str,  Args... args)
   {
-      RCLCPP_DEBUG_THROTTLE(rclcpp_logger_, *clock, duration, write_buffer(str, args...) );
+      RCLCPP_DEBUG_THROTTLE(rclcpp_logger_, clock, duration, write_buffer(str, args...) );
   }
 
   template<typename... Args>
