@@ -31,6 +31,16 @@ int main(int argc, char * argv[])
   logger_clk.warn_throttle(1000, "Warning: {} > {}", 30.1, 30.0);
   logger_clk.debug_throttle(500, "DEBUG MESSAGE");
 
+  ros2_logging_fmt::Logger logger_node(node);
+  logger_node.info("Hi there!");
+  logger_node.info_throttle(1000, "Hi there!");
+
+  rclcpp_lifecycle::LifecycleNode lf_node("test_lifecycle_node");
+  ros2_logging_fmt::Logger logger_lf_node(lf_node);
+  logger_lf_node.info("Hi there!");
+  logger_lf_node.info_throttle(1000, "Hi there!");
+
+
   rclcpp::shutdown();
   return 0;
 }

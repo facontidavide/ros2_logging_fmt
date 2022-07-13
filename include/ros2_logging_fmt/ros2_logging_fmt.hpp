@@ -2,6 +2,7 @@
 #define ROS2_LOGGING_PLUS_HPP
 
 #include <rclcpp/rclcpp.hpp>
+#include <rclcpp_lifecycle/lifecycle_node.hpp>
 
 #define FMT_HEADER_ONLY
 #include "fmt/format.h"
@@ -15,8 +16,14 @@ public:
   Logger(rclcpp::Logger rclcpp_logger): rclcpp_logger_(rclcpp_logger)
   {}
 
-  Logger(rclcpp::Logger rclcpp_logger, rclcpp::Clock::SharedPtr clock): rclcpp_logger_(rclcpp_logger)
-  { clk = clock; }
+  Logger(rclcpp::Logger rclcpp_logger, rclcpp::Clock::SharedPtr clock): rclcpp_logger_(rclcpp_logger), clk(clock)
+  {}
+
+  Logger(rclcpp::Node& n): rclcpp_logger_(n.get_logger()), clk(n.get_clock())
+  {}
+
+  Logger(rclcpp_lifecycle::LifecycleNode& n): rclcpp_logger_(n.get_logger()), clk(n.get_clock())
+  {}
 
   template<typename... Args>
   void info(const char* str, Args... args)
