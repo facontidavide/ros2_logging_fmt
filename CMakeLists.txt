@@ -18,6 +18,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 find_package(fmt REQUIRED)
 
 
@@ -28,7 +29,7 @@ target_include_directories(test_logging
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(test_logging rclcpp fmt)
+ament_target_dependencies(test_logging rclcpp rclcpp_lifecycle fmt)
 
 ament_export_dependencies(rclcpp fmt)
 
@@ -40,4 +41,5 @@ install(
 install(TARGETS test_logging
     RUNTIME DESTINATION lib/${PROJECT_NAME})
 
+ament_export_include_directories(include)
 ament_package()
